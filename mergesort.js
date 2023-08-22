@@ -7,18 +7,21 @@ function mergeSort(array) {
   leftHalf = mergeSort(leftHalf);
   rightHalf = mergeSort(rightHalf);
 
-  let i = 0, j = 0, k = 0;
-  const c = [];
+  let i = 0;
+  let j = 0;
+  let k = 0;
+  const sortedArray = [];
 
   for (let m = 0; m < leftHalf.length + rightHalf.length; m++) {
     if (leftHalf[i] < rightHalf[j] || !rightHalf[j]) {
-      c[k++] = leftHalf[i++];
+      sortedArray[k++] = leftHalf[i++];
+
     } else if (leftHalf[i] > rightHalf[j] || !leftHalf[i]) {
-      c[k++] = rightHalf[j++]
+      sortedArray[k++] = rightHalf[j++];
     }
   }
 
-  return c;
+  return sortedArray;
 }
 
 let sortedArray = mergeSort([335, 748, 266, 348, 485, 407, 41, 413, 5]);
